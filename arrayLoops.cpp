@@ -19,8 +19,20 @@ int main() {
     }
     
     cout << "\nPrinting array in order from least to greatest number: ";
-    for (int m = 0; m < 10; m++) {
-        cout << arr[] << " ";
+   int temp = 0;
+   while (temp < (sizeof(arr)/sizeof(*arr))) {
+   for (int i = temp + 1; i < (sizeof(arr)/sizeof(*arr)); i++) {
+       if (arr[temp] > arr[i]) {
+           int tmp = arr[temp];
+           arr[temp] = arr[i];
+           arr[i] = tmp;
+       }
+   }
+   temp++;
+   }
+   
+   for (int j = 0; j < 10; j++) {
+        cout << arr[j] << " ";
     }
     return 0;
 }
