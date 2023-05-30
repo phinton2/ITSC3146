@@ -39,4 +39,13 @@ int main() {
         cout << arr[j] << " ";
     }
     return 0;
+    
+    
+    // resources studied:
+    /*
+    1) https://stackoverflow.com/questions/4108313/how-do-i-find-the-length-of-an-array
+    2) https://www.youtube.com/watch?v=91asU4hSnd4
+    3) https://www.youtube.com/watch?v=Fs_elYHrTHU
+    4) https://www.sololearn.com/learning/1051
+    */
 }
