@@ -40,4 +40,10 @@ int main() {
     for (int i = 0; i < 4;i++) { // displays unchanged order of values in myInts
         std::cout << myInts[i] << " ";
     }
+    /*
+    References:
+    1) https://www.tutorialspoint.com/cplusplus-program-to-implement-bubble-sort
+    2) https://www.programiz.com/dsa/bubble-sort
+    3) https://www.geeksforgeeks.org/bubble-sort-in-cpp/
+    */
 }
