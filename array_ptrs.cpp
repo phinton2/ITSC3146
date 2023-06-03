@@ -21,4 +21,19 @@ int main() {
     for (int i = 0; i < 4;i++) {
         cout << *my_ptrs[i] << " ";
     }
+    
+    cout << "\nSorted values of my_ptrs (least to greatest): ";
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4 - i - 1; j++) {
+            if (*my_ptrs[j] > *my_ptrs[j + 1]) {
+                int* temp = my_ptrs[j];
+                my_ptrs[j] = my_ptrs[j + 1];
+                my_ptrs[j + 1] = temp;
+            }
+        }
+    }
+    
+    for (int i = 0; i < 4;i++) {
+        std::cout << *my_ptrs[i] << " ";
+    }
 }
