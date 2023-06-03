@@ -36,4 +36,8 @@ int main() {
     for (int i = 0; i < 4;i++) {
         std::cout << *my_ptrs[i] << " ";
     }
+    cout << "\nOld myInt array (should remain unchanged!)";
+    for (int i = 0; i < 4;i++) {
+        std::cout << myInts[i] << " ";
+    }
 }
