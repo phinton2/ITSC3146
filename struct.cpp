@@ -32,7 +32,8 @@ int main() {
     return 0;
   
     /*
-    1) 
-    2) 
+    1) https://www.delftstack.com/howto/cpp/calculate-distance-between-two-points-in-cpp/
+    2) https://www.geeksforgeeks.org/program-calculate-distance-two-points/
+    3) https://codereview.stackexchange.com/questions/144586/finding-the-distance-between-two-points-in-c
     */
 }
