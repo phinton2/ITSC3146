@@ -4,7 +4,7 @@
 //  Created by Bahamon, Julio on 6/25/19.
 //  UNC Charlotte
 //  Copyright © 2019 Bahamon, Julio. All rights reserved.
-//
+// Paydreanne E. Hinton
 
 #include <iostream>
 #include <cstdlib>
@@ -29,21 +29,7 @@ struct patient {
 //       0 IF THE AGES ARE EQUAL
 //       1 OTHERWISE
 
-/*
-int compareByAge(const void* a, const void* b) {
-    const patient* p1 = static_cast<const patient*>(a);
-    const patient* p2 = static_cast<const patient*>(b);
-
-    if (p1->age < p2->age) {
-        return -1;
-    } else if (p1->age == p2->age) {
-        return 0;
-    } else {
-        return 1;
-    }
-}*/
-
-int compareAge(const void* patient1, const void* patient2) {
+int comparePatientsByAge(const void* patient1, const void* patient2) {
     const patient* p1 = static_cast<const patient*>(patient1);
     const patient* p2 = static_cast<const patient*>(patient2);
     if (p1 -> age < p2 -> age) {
@@ -66,10 +52,12 @@ int compareAge(const void* patient1, const void* patient2) {
 //       0 IF THE BALANCES ARE EQUAL
 //       1 OTHERWISE
 
-float compareBalance(const patient& p1, const patient& p2) {
-    if (p1.balance < p2.balance) {
+int comparePatientsByBalance(const void* patient1, const void* patient2) {
+    const patient* p1 = static_cast<const patient*>(patient1);
+    const patient* p2 = static_cast<const patient*>(patient2);
+    if (p1 -> balance < p2 -> balance) {
         return -1;
-    } else if (p1.balance == p2.balance) {
+    } else if (p1 -> balance == p2-> balance) {
         return 0;
     } else {
         return 1;
@@ -88,8 +76,10 @@ float compareBalance(const patient& p1, const patient& p2) {
 //  HINT: USE THE strncmp FUNCTION
 //  (SEE http://www.cplusplus.com/reference/cstring/strncmp/)
 
-int compareName(const patient& p1, const patient& p2) {
-    return strncmp(p1.name, p2.name, 5);
+int comparePatientsByName(const void* patient1, const void* patient2) {
+    const patient* p1 = static_cast<const patient*>(patient1);
+    const patient* p2 = static_cast<const patient*>(patient2);
+    return strncmp(p1 -> name, p2 -> name, 5);
 }
 
 
@@ -122,11 +112,8 @@ int main()
     //  TODO:
     //  IMPLEMENT THE CODE TO DISPLAY THE CONTENTS
     //  OF THE ARRAY BEFORE SORTING
-    displayPatientList(patient_list, total_patients);
-    /*
-    for (int i = 0; i < total_patients; i++) {
-        cout << (i+1) << ") Name: " << patient_list[i].name << "\n   Age: " << patient_list[i].age << "\n   Balance: $" << patient_list[i].balance << "\n\n";
-    }*/
+    displayPatientList(patient_list, total_patients); // displays unsorted list of patients
+
     cout << endl;
     
     
@@ -136,7 +123,9 @@ int main()
     //  CALL THE qsort FUNCTION TO SORT THE ARRAY BY PATIENT AGE
     
     cout << "Patient List - Sorted by Age: " << endl;
-    qsort(patient_list, total_patients, sizeof(patient), compareAge);
+    qsort(patient_list, total_patients, sizeof(patient), comparePatientsByAge); // sorts by age
+    displayPatientList(patient_list, total_patients); // outputs list of patients except sorted by age
+
     
     //  TODO:
     //  DISPLAY THE CONTENTS OF THE ARRAY
@@ -155,6 +144,8 @@ int main()
     //  TODO:
     //  DISPLAY THE CONTENTS OF THE ARRAY
     //  AFTER SORTING BY BALANCE
+    qsort(patient_list, total_patients, sizeof(patient), comparePatientsByBalance); // sorts by balance
+    displayPatientList(patient_list, total_patients); // outputs list of patients except sorted by balance
     
     cout << endl;
     
@@ -169,6 +160,9 @@ int main()
     //  TODO:
     //  DISPLAY THE CONTENTS OF THE ARRAY
     //  AFTER SORTING BY NAME
+    
+    qsort(patient_list, total_patients, sizeof(patient), comparePatientsByName); // sorts by name
+    displayPatientList(patient_list, total_patients); // outputs list of patients except sorted by name
     
     cout << endl;
     
