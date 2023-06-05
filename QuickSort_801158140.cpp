@@ -167,4 +167,12 @@ int main()
     cout << endl;
     
     return 0;
+    
+    /*
+    1) https://www.geeksforgeeks.org/stdstrncmp-in-c/
+    2) https://youtu.be/xNPV7FVLod8
+    3) https://stackoverflow.com/questions/9706517/sort-a-vector-of-objects-by-an-objects-attribute#:~:text=You%20should%20implement%20an%20operator%3C%20on%20cat%20so,%22algorithm%22%20header%20and%20use%20std%3A%3Asort%20on%20your%20array%3A
+    4) https://www.youtube.com/watch?v=FHMOobUJduI&pp=ygUic29ydGluZyBhbiBhcnJheSBvZiBzdHJ1Y3RzIGluIGMrKw%3D%3D
+    5) https://www.youtube.com/watch?v=gSq9nsm4q5s
+    */
 }
