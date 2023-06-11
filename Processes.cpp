@@ -31,7 +31,7 @@ using namespace std;
 pid_t getProcessID(void)
 {
    // TODO: Add your code here
-   pid_t ProcessID = getpid();
+   pid_t ProcessID = getpid(); // stores current process id number
    return ProcessID;
 }
 
@@ -39,26 +39,26 @@ pid_t getProcessID(void)
 // Part 2: Working With Multiple Processes
 string createNewProcess(void)
 {
-   pid_t id = fork();
+   pid_t id = fork(); // stores new process in variable "id"
    
    // DO NOT CHANGE THIS LINE OF CODE
    process_id = id;
    
    
-   if(id == -1)
+   if(id == -1) // if attempted process returns value of -1, then there was an error with creating process
    {
       return "Error creating process";
    }
-   else if (id == 0)
+   else if (id == 0) // if process returns value of 0, then this allows the parent and child processes to exist
    {
       // TODO: Add your code here
       return "I just became a parent!\nI am a child process!\nI am bored of my parent, switching programs now";
    }
-   else
+   else // if process returns value other than 0 or -1, then only the parent process lives and the child process dies
    {
       // TODO: Add your code here
       int status = 0;
-      wait(&status);
+      wait(&status); // parent process is stalled until child process is determined to have ended
       return "My child process just terminated!";
    }
 }
@@ -68,16 +68,16 @@ string createNewProcess(void)
 void replaceProcess(char * args[])
 {
    // Spawn a process to execute the user's command.
-   pid_t id = fork();
+   pid_t id = fork(); // stores new process in variable "id"
    
    
    // TODO: Add your code here
-   if (id == -1) {
+   if (id == -1) { // if new process creation fails, then output error message
       cout << "Error";
-   } else if (id == 0) {
+   } else if (id == 0) { // if new process creation succeeds, then make "ls -l" an executable command for the process via the Terminal
       execvp("ls", args);
       _exit(1);
-   } else {
+   } else { // if any other action is performed for new process creation, the program quits
       wait(NULL);
       exit(0);
    }
