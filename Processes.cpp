@@ -86,7 +86,8 @@ void replaceProcess(char * args[])
 /*
 1) https://www.geeksforgeeks.org/getppid-getpid-linux/#
 2) https://www.geeksforgeeks.org/wait-system-call-c/#
-3) 
+3) https://www.geeksforgeeks.org/getppid-getpid-linux/
+4) https://www.digitalocean.com/community/tutorials/execvp-function-c-plus-plus
 */
 
 #endif /* TestProg_cpp */
